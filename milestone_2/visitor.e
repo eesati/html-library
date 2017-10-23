@@ -5,6 +5,8 @@ note
 	revision: "$Revision$"
 
 class
-	VISITOR
+	VISITOR inherit APPLICATION
+
+	
 
 end

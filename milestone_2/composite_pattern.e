@@ -5,6 +5,10 @@ note
 	revision: "$Revision$"
 
 class
-	COMPOSITE_PATTERN
+	COMPOSITE_PATTERN inherit APPLICATION
+
+	feature
+		
+
 
 end
