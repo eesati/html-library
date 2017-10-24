@@ -17,8 +17,13 @@ feature {NONE} -- Initialization
 	make
 			-- Run application.
 		do
-			--| Add your code here
-			print ("Hello Eiffel World!%N")
+			create c.set_tag("H1")
+			--c.set_content("Hello World!")
+			print("<" + c.tag + ">" + c.content + "</" + c.tag + ">" + "%N")
 		end
+
+feature --Access
+
+	c: COMPONENT
 
 end
