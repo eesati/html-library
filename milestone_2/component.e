@@ -8,8 +8,7 @@ class
 	COMPONENT
 
 create
-	set_tag
-	--set_content
+	make
 
 feature
 		-- Status
@@ -21,6 +20,11 @@ feature
 
 feature
 		--Settings
+	make(t:STRING; c:STRING)
+		do
+			tag:=t
+			content:=c
+		end
 	set_tag(t: STRING)
 		require
 			tag_exists: not t.is_empty

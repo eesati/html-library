@@ -17,8 +17,7 @@ feature {NONE} -- Initialization
 	make
 			-- Run application.
 		do
-			create c.set_tag("H1")
-			--c.set_content("Hello World!")
+			create c.make("H1" , "text")
 			print("<" + c.tag + ">" + c.content + "</" + c.tag + ">" + "%N")
 		end
 
