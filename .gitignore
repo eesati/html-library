@@ -1,3 +1,6 @@
 ### EiffelStudio ###
 # The compilation directory
 EIFGENs
+
+# Apple Files
+.DS_Store

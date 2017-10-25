@@ -16,9 +16,9 @@ create
 -- Constructor
 feature {NONE}
 
-	make(a_text: STRING)
+	make(text: STRING)
 		do
-			text := a_text
+			body := text
 		end
 
 -- Public
@@ -28,13 +28,7 @@ feature {ANY}
 		visitor.visitText(Current)
 	end
 
-	getText: STRING
-	do
-		Result := text
-	end
-
 -- Private
 feature {NONE}
-	text: STRING
 
 end
