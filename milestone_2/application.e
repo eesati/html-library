@@ -1,6 +1,6 @@
 note
 	description: "milestone_2 application root class"
-	date: "$Date$"
+	date: "today"
 	revision: "$Revision$"
 
 class
