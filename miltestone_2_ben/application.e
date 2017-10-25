@@ -22,7 +22,10 @@ feature {NONE}
 			create {HTMLVISITOR} visitor.make
 			create document.make
 
+			document.addchild (create {HEADINGNODE}.make ("My Header", 1))
 			document.addchild (create {TEXTNODE}.make("Hallo Welt"))
+			document.addchild (create {IMAGENODE}.makealt ("//besole.ch/pictograms/logo.png", "Logo Besole"))
+
 			document.accept (visitor)
 			print(visitor.content)
 		end

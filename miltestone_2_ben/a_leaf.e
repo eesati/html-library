@@ -10,10 +10,18 @@ deferred class
 inherit
 	A_COMPOSITE
 
--- Private
+-- Fields
 feature {NONE}
+	body: STRING
 
 -- Public
 feature {ANY}
+	getBody: STRING
+	do
+		Result := body
+	end
+
+-- Private
+feature {NONE}
 
 end
