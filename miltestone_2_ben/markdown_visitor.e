@@ -32,7 +32,7 @@ feature
 
 	visitImage(image: IMAGENODE)
 	do
-		content := content + "<img alt='' src='' />"
+		content := content + "<![Alt text](/>"
 	end
 
 	visitText(text: TEXTNODE)
