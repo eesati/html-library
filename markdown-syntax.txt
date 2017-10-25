@@ -1,0 +1,12 @@
+Extracted from https://www.markdownguid.org/basic-syntax
+
+Headings
+Paragraphs
+Line Breaks
+Emphasis
+Blockquotes
+Lists
+Code
+Horizontal Rules
+Links
+Images
