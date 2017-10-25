@@ -12,10 +12,19 @@ inherit
 
 -- Public
 feature {ANY}
+	addChild(child: A_COMPOSITE)
+	do
+		children.extend (child)
+	end
+
+	getChildren: LINKED_LIST[A_COMPOSITE]
+	do
+		Result := children
+	end
 
 
 -- Private
-feature {NONE}
+feature
 	children: LINKED_LIST[A_COMPOSITE]
 
 end

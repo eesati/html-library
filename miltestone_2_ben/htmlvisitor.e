@@ -14,9 +14,6 @@ create
 	make
 
 feature
-	content: STRING
-
-feature
 	make
 	do
 		content := ""
@@ -27,7 +24,7 @@ feature
 		content := content + "<!DOCTYPE html>"
 		content := content + "<html>"
 
-		across document.children as child loop
+		across document.getChildren as child loop
 			child.item.accept(Current)
 		end
 
@@ -41,7 +38,7 @@ feature
 
 	visitText(text: TEXTNODE)
 	do
-		content := content + "<p></p>"
+		content := content + "<p>" + text.getText + "</p>"
 	end
 
 end

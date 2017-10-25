@@ -7,6 +7,9 @@ note
 deferred class
 	A_VISITOR
 
+feature
+	content: STRING
+	
 -- Public
 feature {ANY}
 	visitDocument(document: DOCUMENT) deferred end

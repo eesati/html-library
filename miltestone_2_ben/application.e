@@ -19,10 +19,12 @@ feature {NONE}
 			document: DOCUMENT
 			visitor: A_VISITOR
 		do
-			create visitor.make
+			create {HTMLVISITOR} visitor.make
 			create document.make
 
-			
+			document.addchild (create {TEXTNODE}.make("Hallo Welt"))
+			document.accept (visitor)
+			print(visitor.content)
 		end
 
 end

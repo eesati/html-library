@@ -27,10 +27,7 @@ feature {ANY}
 		visitor.visitDocument(Current)
 	end
 
-	addChild(child: A_COMPOSITE)
-	do
-		children.put (child)
-	end
+
 -- Private
 feature {NONE}
 

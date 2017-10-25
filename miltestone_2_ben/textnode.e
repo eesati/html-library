@@ -28,6 +28,11 @@ feature {ANY}
 		visitor.visitText(Current)
 	end
 
+	getText: STRING
+	do
+		Result := text
+	end
+
 -- Private
 feature {NONE}
 	text: STRING
