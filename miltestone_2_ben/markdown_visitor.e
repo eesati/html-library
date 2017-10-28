@@ -30,14 +30,34 @@ feature
 		content := content + "</html>"
 	end
 
+	visitHeading(heading: HEADINGNODE)
+	do
+
+	end
+
 	visitImage(image: IMAGENODE)
 	do
 		content := content + "<![Alt text](/>"
 	end
 
+	visitTable(table: TABLENODE)
+	do
+
+	end
+
+	visitTableRow(tablerow: TABLEROWNODE)
+	do
+
+	end
+
+	visitTableCell(tablecell: TABLECELLNODE)
+	do
+
+	end
+
 	visitText(text: TEXTNODE)
 	do
-		content := content + "<p>" + text.getText + "</p>"
+		content := content + "<p>" + text.getBody + "</p>"
 	end
 
 end
