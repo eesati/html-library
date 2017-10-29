@@ -30,6 +30,16 @@ feature
 		content := content + "</html>"
 	end
 
+	visitDocumentLink(documentlink: DOCUMENTLINKNODE)
+	do
+
+	end
+
+	visitExternalLink(externallink: EXTERNALLINKNODE)
+	do
+
+	end
+
 	visitHeading(heading: HEADINGNODE)
 	do
 
@@ -38,6 +48,16 @@ feature
 	visitImage(image: IMAGENODE)
 	do
 		content := content + "<![Alt text](/>"
+	end
+
+	visitList(list: LISTNODE)
+	do
+
+	end
+
+	visitListItem(listitem: LISTITEMNODE)
+	do
+		
 	end
 
 	visitTable(table: TABLENODE)

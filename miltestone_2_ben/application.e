@@ -37,6 +37,8 @@ feature {NONE}
 
 			document.accept (visitor)
 			print(visitor.content)
+
+			create {MARKDOWN_VISITOR} visitor.make
 		end
 
 end
