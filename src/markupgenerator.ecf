@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-16-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-16-0 http://www.eiffel.com/developers/xml/configuration-1-16-0.xsd" name="milestone_2" uuid="4FA3D076-2D33-4111-9D77-A7CC9B23718B">
-	<target name="milestone_2">
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-16-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-16-0 http://www.eiffel.com/developers/xml/configuration-1-16-0.xsd" name="MARKUPGENERATOR" uuid="1CC80879-AD2D-4D2F-B7A7-495B3944A9DF">
+	<target name="MARKUPGENERATOR">
 		<root feature="make" class="APPLICATION"/>
 		<file_rule>
 			<exclude>/\.git$</exclude>
@@ -14,6 +14,6 @@
 		<setting name="console_application" value="true"/>
 		<precompile name="base_pre" location="$ISE_PRECOMP/base-scoop-safe.ecf"/>
 		<library name="base" location="$ISE_LIBRARY/library/base/base.ecf"/>
-		<cluster name="milestone_2" location=".\" recursive="true"/>
+		<cluster name="markupgenerator" location=".\" recursive="true"/>
 	</target>
 </system>
