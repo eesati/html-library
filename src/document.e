@@ -22,9 +22,9 @@ feature {NONE}
 
 -- Public
 feature {ANY}
-	accept(visitor: A_VISITOR)
+	accept(visitor: A_VISITOR): STRING
 	do
-		visitor.visitDocument(Current)
+		Result := visitor.visitDocument(Current)
 	end
 
 

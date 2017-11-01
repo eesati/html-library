@@ -19,9 +19,9 @@ feature {NONE}
 			document: DOCUMENT
 			table: TABLENODE
 			tablerow: TABLEROWNODE
-			visitor: A_VISITOR
+
+			image: IMAGENODE
 		do
-			create {HTML_VISITOR} visitor.make
 			create document.make
 
 			document.addchild (create {HEADINGNODE}.make ("My Header", 1))
@@ -35,10 +35,10 @@ feature {NONE}
 
 			document.addchild (table)
 
-			document.accept (visitor)
-			print(visitor.content)
+			print(document.accept (create {HTML_VISITOR}.make))
+			print(document.accept (create {MARKDOWN_VISITOR}.make))
 
-			create {MARKDOWN_VISITOR} visitor.make
+			--create {MARKDOWN_VISITOR} visitor.make
 		end
 
 end

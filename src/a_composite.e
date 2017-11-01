@@ -9,7 +9,7 @@ deferred class
 
 -- Public Features
 feature {ANY}
-	accept(visitor: A_VISITOR) deferred end
+	accept(visitor: A_VISITOR): STRING deferred end
 
 -- Private Features
 feature {NONE}

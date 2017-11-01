@@ -25,7 +25,7 @@ feature {NONE}
 	make(a_source: STRING)
 		do
 			source := a_source
-			altText := ""
+			altText := "Hallo Welt"
 			body := ""
 		end
 	makeAlt(a_source: STRING; a_alt: STRING)
@@ -37,9 +37,9 @@ feature {NONE}
 
 -- Public
 feature {ANY}
-	accept(visitor: A_VISITOR)
+	accept(visitor: A_VISITOR): STRING
 	do
-		visitor.visitImage(Current)
+		Result := visitor.visitImage(Current)
 	end
 
 	getSource: STRING

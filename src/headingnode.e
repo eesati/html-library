@@ -27,9 +27,9 @@ feature {NONE}
 
 -- Public
 feature {ANY}
-	accept(visitor: A_VISITOR)
+	accept(visitor: A_VISITOR): STRING
 	do
-		visitor.visitHeading(Current)
+		Result := visitor.visitHeading(Current)
 	end
 
 	getLevel: INTEGER

@@ -28,8 +28,9 @@ feature {NONE}
 
 
 feature {ANY}
-	accept(visitor: A_VISITOR) do
-		visitor.visitTable(Current)
+	accept(visitor: A_VISITOR): STRING
+	do
+		Result := visitor.visitTable(Current)
 	end
 
 	addChild(tablerow: TABLEROWNODE)

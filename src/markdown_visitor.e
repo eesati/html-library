@@ -15,69 +15,68 @@ inherit
 feature
 	make
 	do
-		content := ""
 	end
 
-	visitDocument(document: DOCUMENT)
+	visitDocument(document: DOCUMENT): STRING
 	do
-		content := content + "<!DOCTYPE html>"
-		content := content + "<html>"
+		Result := "<!DOCTYPE html>"
+		Result := Result + "<html>"
 
 		across document.getChildren as child loop
-			child.item.accept(Current)
+			Result := Result + child.item.accept(Current)
 		end
 
-		content := content + "</html>"
+		Result := Result + "</html>"
 	end
 
-	visitDocumentLink(documentlink: DOCUMENTLINKNODE)
+	visitDocumentLink(documentlink: DOCUMENTLINKNODE): STRING
 	do
-
+		Result := ""
 	end
 
-	visitExternalLink(externallink: EXTERNALLINKNODE)
+	visitExternalLink(externallink: EXTERNALLINKNODE): STRING
 	do
-
+		Result := ""
 	end
 
-	visitHeading(heading: HEADINGNODE)
+	visitHeading(heading: HEADINGNODE): STRING
 	do
-
+		Result := ""
 	end
 
-	visitImage(image: IMAGENODE)
+	visitImage(image: IMAGENODE): STRING
 	do
-		content := content + "<![Alt text](/>"
+		Result := "<![Alt text](/>"
 	end
 
-	visitList(list: LISTNODE)
+	visitList(list: LISTNODE): STRING
 	do
-
+		Result := ""
 	end
 
-	visitListItem(listitem: LISTITEMNODE)
+	visitListItem(listitem: LISTITEMNODE): STRING
 	do
-		
+		Result := ""
 	end
 
-	visitTable(table: TABLENODE)
+	visitTable(table: TABLENODE): STRING
 	do
-
+		Result := ""
 	end
 
-	visitTableRow(tablerow: TABLEROWNODE)
+	visitTableRow(tablerow: TABLEROWNODE): STRING
 	do
-
+		Result := ""
 	end
 
-	visitTableCell(tablecell: TABLECELLNODE)
+	visitTableCell(tablecell: TABLECELLNODE): STRING
 	do
-
+		Result := ""
 	end
 
-	visitText(text: TEXTNODE)
+	visitText(text: TEXTNODE): STRING
 	do
-		content := content + "<p>" + text.getBody + "</p>"
+		Result := ""
 	end
 
 end

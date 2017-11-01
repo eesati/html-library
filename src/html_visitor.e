@@ -20,97 +20,96 @@ feature
 feature
 	make
 	do
-		content := ""
 		indent := 0
 		indentSequence := "  "
 	end
 
-	visitDocument(document: DOCUMENT)
+	visitDocument(document: DOCUMENT): STRING
 	do
-		content := content + getIndent + "<!DOCTYPE html>"
-		content := content + getIndent + "<html>"
+		Result := "<!DOCTYPE html>"
+		Result:= Result + getIndent + "<html>"
 
 		indent := indent + 1
 		across document.getChildren as child loop
-			child.item.accept(Current)
+			Result:= Result + child.item.accept(Current)
 		end
 		indent := indent - 1
 
-		content := content + getIndent+ "</html>"
+		Result:= Result + getIndent + "</html>"
 	end
 
-	visitDocumentLink(documentlink: DOCUMENTLINKNODE)
+	visitDocumentLink(documentlink: DOCUMENTLINKNODE): STRING
 	do
-		content := content + getIndent + "<a href=%"%">" + documentlink.getBody + "</a>"
+		Result:= getIndent + "<a href=%"%">" + documentlink.getBody + "</a>"
 	end
 
-	visitExternalLink(externallink: EXTERNALLINKNODE)
+	visitExternalLink(externallink: EXTERNALLINKNODE): STRING
 	do
-		content := content + getIndent + "<a href=%"" + externallink.getLink + "%">" + externallink.getBody + "</a>"
+		Result:= getIndent + "<a href=%"" + externallink.getLink + "%">" + externallink.getBody + "</a>"
 	end
 
-	visitHeading(heading: HEADINGNODE)
+	visitHeading(heading: HEADINGNODE): STRING
 	do
-		content := content + getIndent + "<h" + heading.getLevel.out + ">" + heading.getBody + "</h" + heading.getLevel.out + ">"
+		Result:= getIndent + "<h" + heading.getLevel.out + ">" + heading.getBody + "</h" + heading.getLevel.out + ">"
 	end
 
-	visitImage(image: IMAGENODE)
+	visitImage(image: IMAGENODE): STRING
 	do
-		content := content + getIndent + "<img alt=%"" + image.getAlt + "%" src=%"" + image.getSource + "%" />"
+		Result:= getIndent + "<img alt=%"" + image.getAlt + "%" src=%"" + image.getSource + "%" />"
 	end
 
-	visitList(list: LISTNODE)
+	visitList(list: LISTNODE): STRING
 	do
-		content := content + getIndent + "<ul>"
+		Result:= getIndent + "<ul>"
 
 		indent := indent + 1
 		across list.getchildren as child loop
-			child.item.accept (Current)
+			Result:= Result + child.item.accept (Current)
 		end
 		indent := indent - 1
 
-		content := content + getIndent + "</ul>"
+		Result:= Result + getIndent + "</ul>"
 	end
 
-	visitListItem(listItem: LISTITEMNODE)
+	visitListItem(listItem: LISTITEMNODE): STRING
 	do
-		content := content + getIndent + "<li>" + listItem.getbody + "</li>"
+		Result:= getIndent + "<li>" + listItem.getbody + "</li>"
 	end
 
-	visitTable(table: TABLENODE)
+	visitTable(table: TABLENODE): STRING
 	do
-		content := content + getIndent + "<table>"
+		Result := getIndent + "<table>"
 
 		indent := indent + 1
 		across table.getchildren as child loop
-			child.item.accept (Current)
+			Result:= Result + child.item.accept (Current)
 		end
 		indent := indent - 1
 
-		content := content + getIndent + "</table>"
+		Result:= Result + getIndent + "</table>"
 	end
 
-	visitTableRow(tablerow: TABLEROWNODE)
+	visitTableRow(tablerow: TABLEROWNODE): STRING
 	do
-		content := content + getIndent + "<tr>"
+		Result := getIndent + "<tr>"
 
 		indent := indent + 1
 		across tablerow.getchildren as child loop
-			child.item.accept (Current)
+			Result:= Result + child.item.accept (Current)
 		end
 		indent := indent -1
 
-		content := content + getIndent + "</tr>"
+		Result:= Result + getIndent + "</tr>"
 	end
 
-	visitTableCell(tablecell: TABLECELLNODE)
+	visitTableCell(tablecell: TABLECELLNODE): STRING
 	do
-		content := content + getIndent + "<td>" + tablecell.getBody + "</td>"
+		Result := getIndent + "<td>" + tablecell.getBody + "</td>"
 	end
 
-	visitText(text: TEXTNODE)
+	visitText(text: TEXTNODE): STRING
 	do
-		content := content + getIndent + "<p>" + text.getBody + "</p>"
+		Result := getIndent + "<p>" + text.getBody + "</p>"
 	end
 
 
@@ -119,12 +118,7 @@ feature
 	local
 		counter: INTEGER
 	do
-		if content.is_equal("") then
-			Result := ""
-		else
-			Result := "%N"
-		end
-
+		Result := "%N"
 		from
 			counter := 0
 		until

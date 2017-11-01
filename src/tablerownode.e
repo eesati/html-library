@@ -19,8 +19,9 @@ feature {NONE}
 	end
 
 feature {ANY}
-	accept(visitor: A_VISITOR) do
-		visitor.visitTableRow(Current)
+	accept(visitor: A_VISITOR): STRING
+	do
+		Result := visitor.visitTableRow(Current)
 	end
 
 end

@@ -24,9 +24,9 @@ feature {NONE}
 	end
 
 feature {ANY}
-	accept(visitor: A_VISITOR)
+	accept(visitor: A_VISITOR): STRING
 	do
-		visitor.visitDocumentLink(Current)
+		Result := visitor.visitDocumentLink(Current)
 	end
 
 	getDocument: DOCUMENT

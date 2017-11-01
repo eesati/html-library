@@ -23,9 +23,9 @@ feature {NONE}
 
 -- Public
 feature {ANY}
-	accept(visitor: A_VISITOR)
+	accept(visitor: A_VISITOR): STRING
 	do
-		visitor.visitText(Current)
+		Result := visitor.visitText(Current)
 	end
 
 -- Private

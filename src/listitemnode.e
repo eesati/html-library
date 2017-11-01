@@ -20,9 +20,9 @@ feature {NONE}
 	end
 
 feature {ANY}
-	accept(visitor: A_VISITOR)
+	accept(visitor: A_VISITOR): STRING
 	do
-		visitor.visitListItem(Current)
+		Result := visitor.visitListItem(Current)
 	end
 
 end
