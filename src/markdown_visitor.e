@@ -12,71 +12,116 @@ inherit
 
 	create make
 
-feature
+feature {NONE}
 	make
 	do
+		firstSeen := false
 	end
 
+feature {NONE}
+	firstSeen: BOOLEAN
+
+feature {ANY}
 	visitDocument(document: DOCUMENT): STRING
 	do
-		Result := "<!DOCTYPE html>"
-		Result := Result + "<html>"
-
+		Result := ""
 		across document.getChildren as child loop
 			Result := Result + child.item.accept(Current)
 		end
-
-		Result := Result + "</html>"
 	end
 
 	visitDocumentLink(documentlink: DOCUMENTLINKNODE): STRING
 	do
-		Result := ""
+		Result := getnewline + "[" + documentlink.getbody + "](" + "TODO: get document link" + ")"
+
+		firstSeen := true
 	end
 
 	visitExternalLink(externallink: EXTERNALLINKNODE): STRING
 	do
-		Result := ""
+		Result := getnewline + "[" + externallink.getbody + "](" + externallink.getlink + ")"
+
+		firstSeen := true
 	end
 
 	visitHeading(heading: HEADINGNODE): STRING
+	local
+		counter: INTEGER
 	do
-		Result := ""
+		from
+			counter := 0
+			Result := getnewline
+		until
+			counter >= heading.getlevel
+		loop
+			Result := Result + "#"
+			counter := counter + 1
+		end
+		Result := Result + " " + heading.getbody
+
+		firstSeen := true
 	end
 
 	visitImage(image: IMAGENODE): STRING
 	do
-		Result := "<![Alt text](/>"
+		Result := getnewline + "![" + image.getalt + "](" + image.getsource + ")"
+
+		firstSeen := true
 	end
 
 	visitList(list: LISTNODE): STRING
 	do
 		Result := ""
+		across list.getchildren as child loop
+			Result := child.item.accept (Current)
+		end
 	end
 
 	visitListItem(listitem: LISTITEMNODE): STRING
 	do
-		Result := ""
+		Result := getnewline + "- " + listitem.getbody
+
+		firstSeen := true
 	end
 
 	visitTable(table: TABLENODE): STRING
 	do
 		Result := ""
+		across table.getchildren as child loop
+			Result := child.item.accept (Current)
+		end
 	end
 
 	visitTableRow(tablerow: TABLEROWNODE): STRING
 	do
 		Result := ""
+		across tablerow.getchildren as child loop
+			Result := getnewline + child.item.accept (Current)
+		end
 	end
 
 	visitTableCell(tablecell: TABLECELLNODE): STRING
 	do
-		Result := ""
+		Result := tablecell.getbody + " | "
+
+		firstSeen := true
 	end
 
 	visitText(text: TEXTNODE): STRING
 	do
-		Result := ""
+		Result := getnewline + text.getbody
+
+		firstSeen := true
+	end
+
+feature {NONE}
+	getNewline: STRING
+	do
+		if firstSeen then
+			Result := "%N"
+		else
+			Result := ""
+		end
 	end
 
 end
