@@ -17,12 +17,14 @@ feature
 	indent: INTEGER
 	indentSequence: STRING
 
-feature
+feature {NONE}
 	make
 	do
 		indent := 0
 		indentSequence := "  "
 	end
+
+feature {A_COMPOSITE}
 
 	visitCustomElement(customelement: CUSTOMELEMENT): STRING
 	do
@@ -127,7 +129,7 @@ feature
 	end
 
 
-
+feature {NONE}
 	getIndent: STRING
 	local
 		counter: INTEGER

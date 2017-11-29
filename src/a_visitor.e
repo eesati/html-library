@@ -10,7 +10,7 @@ deferred class
 feature
 
 -- Public
-feature {ANY}
+feature {A_COMPOSITE}
 	visitCustomElement(customelement: CUSTOMELEMENT): STRING deferred end
 	visitDocument(document: DOCUMENT): STRING deferred end
 	visitDocumentLink(documentlink: DOCUMENTLINKNODE): STRING deferred end

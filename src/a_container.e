@@ -24,7 +24,7 @@ feature {ANY}
 
 
 -- Private
-feature
+feature {NONE}
 	children: LINKED_LIST[A_COMPOSITE]
 
 end
