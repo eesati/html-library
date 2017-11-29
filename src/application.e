@@ -19,26 +19,40 @@ feature {NONE}
 			document: DOCUMENT
 			table: TABLENODE
 			tablerow: TABLEROWNODE
+			custom: CUSTOMELEMENT
 
 			image: IMAGENODE
 		do
-			create document.make
+			create document.make("doc1");
 
 			document.addchild (create {HEADINGNODE}.make ("My Header", 1))
 			document.addchild (create {TEXTNODE}.make("Hallo Welt"))
-			document.addchild (create {IMAGENODE}.makealt ("//besole.ch/pictograms/logo.png", "Logo Besole"))
+			document.addchild (create {IMAGENODE}.makealt ("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/220px-Google_2015_logo.svg.png", "Logo Google"))
 
 			create table.make
+
 			create tablerow.make
 			tablerow.addchild (create {TABLECELLNODE}.make("Test"))
+			tablerow.addchild (create {TABLECELLNODE}.make ("Test2"))
+			tablerow.addchild (create {TABLECELLNODE}.make ("Test2"))
+			table.addchild (tablerow)
+
+			create tablerow.make
+			tablerow.addchild (create {TABLECELLNODE}.make("Test"))
+			tablerow.addchild (create {TABLECELLNODE}.make ("Test2"))
+			tablerow.addchild (create {TABLECELLNODE}.make ("Test2"))
 			table.addchild (tablerow)
 
 			document.addchild (table)
 
-			print(document.accept (create {HTML_VISITOR}.make))
-			print(document.accept (create {MARKDOWN_VISITOR}.make))
+			create custom.make
+			custom.addtext ("<p>Hallo Welt</p>")
+			document.addchild (custom)
 
-			--create {MARKDOWN_VISITOR} visitor.make
+			io.put_string(document.accept (create {HTML_VISITOR}.make))
+			io.put_new_line
+			io.put_new_line
+			io.put_string(document.accept (create {MARKDOWN_VISITOR}.make))
 		end
 
 end

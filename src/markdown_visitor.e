@@ -22,6 +22,11 @@ feature {NONE}
 	firstSeen: BOOLEAN
 
 feature {ANY}
+	visitCustomElement(customelement: CUSTOMELEMENT): STRING
+	do
+		Result := getnewline + customelement.getbody
+	end
+
 	visitDocument(document: DOCUMENT): STRING
 	do
 		Result := ""
@@ -32,7 +37,7 @@ feature {ANY}
 
 	visitDocumentLink(documentlink: DOCUMENTLINKNODE): STRING
 	do
-		Result := getnewline + "[" + documentlink.getbody + "](" + "TODO: get document link" + ")"
+		Result := getnewline + "[" + documentlink.getbody + "](" + documentlink.getdocument.getname + "/)"
 
 		firstSeen := true
 	end
@@ -73,7 +78,7 @@ feature {ANY}
 	do
 		Result := ""
 		across list.getchildren as child loop
-			Result := child.item.accept (Current)
+			Result := Result + child.item.accept (Current)
 		end
 	end
 
@@ -86,25 +91,27 @@ feature {ANY}
 
 	visitTable(table: TABLENODE): STRING
 	do
-		Result := ""
+		Result := getnewline + getnewline + "<table>"
+		firstSeen := true
+
 		across table.getchildren as child loop
-			Result := child.item.accept (Current)
+			Result := Result + child.item.accept (Current)
 		end
+		Result := Result + getnewline + "</table>" + getnewline
 	end
 
 	visitTableRow(tablerow: TABLEROWNODE): STRING
 	do
-		Result := ""
+		Result := getnewline + "<tr>"
 		across tablerow.getchildren as child loop
-			Result := getnewline + child.item.accept (Current)
+			Result := Result + child.item.accept (Current)
 		end
+		Result := Result + getnewline + "</tr>"
 	end
 
 	visitTableCell(tablecell: TABLECELLNODE): STRING
 	do
-		Result := tablecell.getbody + " | "
-
-		firstSeen := true
+		Result := getnewline + "<td>" + tablecell.getbody + "</td>"
 	end
 
 	visitText(text: TEXTNODE): STRING

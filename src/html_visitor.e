@@ -24,10 +24,21 @@ feature
 		indentSequence := "  "
 	end
 
+	visitCustomElement(customelement: CUSTOMELEMENT): STRING
+	do
+		Result := getIndent + customelement.getbody
+	end
+
 	visitDocument(document: DOCUMENT): STRING
 	do
 		Result := "<!DOCTYPE html>"
-		Result:= Result + getIndent + "<html>"
+		Result := Result + getIndent + "<html>"
+		indent := indent + 1
+
+		Result := Result + getIndent + "<head>"
+		Result := Result + getIndent + "</head>"
+
+		Result := Result + getIndent + "<body>"
 
 		indent := indent + 1
 		across document.getChildren as child loop
@@ -35,12 +46,15 @@ feature
 		end
 		indent := indent - 1
 
+		Result := Result + getIndent + "</body>"
+		indent := indent - 1
+
 		Result:= Result + getIndent + "</html>"
 	end
 
 	visitDocumentLink(documentlink: DOCUMENTLINKNODE): STRING
 	do
-		Result:= getIndent + "<a href=%"%">" + documentlink.getBody + "</a>"
+		Result:= getIndent + "<a href=%"" + documentlink.getdocument.getname + "%">" + documentlink.getBody + "</a>"
 	end
 
 	visitExternalLink(externallink: EXTERNALLINKNODE): STRING
