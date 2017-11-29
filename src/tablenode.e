@@ -17,7 +17,7 @@ inherit
 create
 	make
 
-feature
+feature {NONE}
 	children: LINKED_LIST[TABLEROWNODE]
 
 -- Constructor

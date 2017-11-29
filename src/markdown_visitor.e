@@ -21,7 +21,7 @@ feature {NONE}
 feature {NONE}
 	firstSeen: BOOLEAN
 
-feature {ANY}
+feature {A_COMPOSITE}
 	visitCustomElement(customelement: CUSTOMELEMENT): STRING
 	do
 		Result := getnewline + customelement.getbody
