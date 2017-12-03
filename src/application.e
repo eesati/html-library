@@ -22,8 +22,10 @@ feature {NONE}
 			custom: CUSTOMELEMENT
 
 			image: IMAGENODE
+
+			filewriter: FILEWRITER
 		do
-			create document.make("doc1");
+			create document.make("doc1.html");
 
 			document.addchild (create {HEADINGNODE}.make ("My Header", 1))
 			document.addchild (create {TEXTNODE}.make("Hallo Welt"))
@@ -49,10 +51,13 @@ feature {NONE}
 			custom.addtext ("<p>Hallo Welt</p>")
 			document.addchild (custom)
 
-			io.put_string(document.accept (create {HTML_VISITOR}.make))
-			io.put_new_line
-			io.put_new_line
-			io.put_string(document.accept (create {MARKDOWN_VISITOR}.make))
+			--io.put_string(document.accept (create {HTML_VISITOR}.make))
+			--io.put_new_line
+			--io.put_new_line
+			--io.put_string(document.accept (create {MARKDOWN_VISITOR}.make))
+
+			create filewriter.make ("C:/Users/besole/Desktop/")
+			filewriter.write (document, create {MARKDOWN_VISITOR}.make)
 		end
 
 end
