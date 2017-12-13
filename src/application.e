@@ -24,6 +24,8 @@ feature {NONE}
 			image: IMAGENODE
 
 			filewriter: FILEWRITER
+
+			test: LEAF_TEST
 		do
 			create document.make("doc1.html");
 
@@ -56,8 +58,10 @@ feature {NONE}
 			--io.put_new_line
 			--io.put_string(document.accept (create {MARKDOWN_VISITOR}.make))
 
-			create filewriter.make ("C:/Users/besole/Desktop/")
-			filewriter.write (document, create {MARKDOWN_VISITOR}.make)
+			--create filewriter.make ("C:/Users/besole/Desktop/")
+			--filewriter.write (document, create {MARKDOWN_VISITOR}.make)
+
+			create test.make
 		end
 
 end
