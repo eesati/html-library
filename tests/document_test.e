@@ -15,6 +15,7 @@ inherit
 
 feature {NONE} -- Well known field values
 	NAME: STRING = "DOCUMENT-A"
+	NAME2: STRING = ""
 
 feature -- Test routines
 
@@ -25,9 +26,12 @@ feature -- Test routines
 			testcase: "T.3.1.1.003"
 		local
 			document: DOCUMENT
+			document2: DOCUMENT
 		do
 			create document.make (NAME)
-			assert ("Document name set", document.getname.is_equal (NAME))
+			create document2.make(NAME2)
+			assert ("Document name", document.getname.is_equal (NAME))
+			assert ("Document name", document2.getname.is_equal (NAME2))
 		end
 
 end
