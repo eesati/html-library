@@ -22,17 +22,15 @@ feature -- Test routines
 	image_node_int_test
 			-- New test routine
 		note
-			testing:  "covers/{IMAGENODE}.make", "covers/{IMAGENODE}.makealt", "covers/{DOCUMENT}.addchildren"
+			testing:  "covers/{IMAGENODE}.make", "covers/{IMAGENODE}.makealt"
 			testcase: "T.3.1.2.004"
 		local
 			image: IMAGENODE
 			document: DOCUMENT
 		do
 			create image.makealt (SOURCE, ALT)
-			create document.make ("DOCUMENT-A")
 			assert ("Source correctly set", image.getsource.is_equal (SOURCE))
 			assert ("Alternative image text", image.getalt.is_equal (ALT))
-			assert ("Right child", document.getchildren.at (1).is_equal (image))
 		end
 
 end

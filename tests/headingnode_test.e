@@ -35,10 +35,10 @@ feature -- Test routines
 			create heading2.make(NAME2, LEVEL2)
 			create document.make("DOCUMENT-A")
 			document.addchild (heading)
-			assert ("Heading name", heading.getbody.is_equal (NAME))
-			assert ("Heading name", heading.getbody.is_equal (NAME2))
-			assert ("Heading level", heading.getlevel.is_equal (LEVEL))
-			assert ("Heading level", heading.getlevel.is_equal (LEVEL2))
+			assert ("Heading name 1", heading.getbody.is_equal (NAME))
+			assert ("Heading name 2", heading2.getbody.is_equal (NAME2))
+			assert ("Heading level 1", heading.getlevel.is_equal (LEVEL))
+			assert ("Heading level 2", heading2.getlevel.is_equal (LEVEL2))
 			assert ("Right child", document.getchildren.at (1).is_equal (heading))
 
 		end

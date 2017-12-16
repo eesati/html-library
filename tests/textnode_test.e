@@ -35,9 +35,9 @@ feature -- Test routines
 			create text.make (NAME2)
 			create document.make(DOCNAME)
 			document.addchild (text)
-			assert ("Correct text", text.getbody.is_equal (NAME))
+			assert ("Correct text", false = text.getbody.is_equal (NAME))
 			assert ("Correct text", text.getbody.is_equal (NAME2))
-			assert ("Alternative image text", document.getchildren.at(1).is_equal (text))
+			assert ("Alternative image text", document.getchildren.at(1) .is_equal (text))
 		end
 
 end

@@ -1,17 +1,30 @@
-Cannot be tested
+Requirements to be tested
+R3.2.2.001
 
-T3.1.1.001 and T3.1.1.002
+R3.2.3.002
 
-Double Entry
+R3.2.4.001
+R3.2.4.002
+R3.2.4.003
 
-T3.1.3.001
+Requirements with written tests
+R3.2.1.003
 
-Tests to be implemented
+R3.2.2.002
+R3.2.2.003
+R3.2.2.004
+R3.2.2.005
+R3.2.2.006
+R3.2.2.007
+R3.2.2.008
+R3.2.2.009
+R3.2.2.010
 
-T3.1.3.001
-T3.1.2.007
-T3.1.2.011
-T3.1.3.002
-T3.1.3.001
-T3.1.4.002
-T3.1.3.003
+R3.2.3.001
+
+Requirements which were not implemented
+R3.2.2.011
+
+Requirements which cannot be tested in eiffel
+R3.2.1.001
+R3.2.1.002
