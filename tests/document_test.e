@@ -22,7 +22,7 @@ feature -- Test routines
 	document_test
 			-- New test routine
 		note
-			testing:  "covers/{DOCUMENT}.make"
+			testing:  "covers/{DOCUMENT}.make, covers/{DOCUMENT}.getname"
 			testcase: "T.3.1.1.003"
 		local
 			document: DOCUMENT

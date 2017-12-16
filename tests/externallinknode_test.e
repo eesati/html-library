@@ -19,29 +19,36 @@ feature {NONE} -- Well known field values
 	NAME2: STRING = ""
 	LINK2: STRING = ""
 
+	INTLINK: STRING = "#myanchor"
+
 feature -- Test routines
 
 	externallinknode_test
 			-- New test routine
 		note
-			testing:  "covers/{EXTERNALLINKNODE}.make",  "covers/{DOCUMENT}.addchild"
+			testing:  "covers/{EXTERNALLINKNODE}.make"
 			testcase: "T.3.1.2.003"
 		local
 			linknode: EXTERNALLINKNODE
 			linknode2: EXTERNALLINKNODE
-			document: DOCUMENT
-
 		do
 			create linknode.make(NAME, LINK)
 			create linknode2.make(NAME2, LINK2)
-			create document.make("DOCUMENT-A")
-			document.addchild (linknode)
-			assert ("Link name", linknode.getbody.is_equal (NAME))
-			assert ("Link name", linknode2.getbody.is_equal (NAME2))
-			assert ("Link url", linknode.getlink.is_equal (LINK))
-			assert ("Link url", linknode2.getlink.is_equal (LINK2))
-			assert ("Right child", document.getchildren.at (1).is_equal (linknode))
+			assert ("Link name 1", linknode.getbody.is_equal (NAME))
+			assert ("Link name 2", linknode2.getbody.is_equal (NAME2))
+			assert ("Link url 1", linknode.getlink.is_equal (LINK))
+			assert ("Link url 2", linknode2.getlink.is_equal (LINK2))
+		end
 
+	link_within_document
+		note
+			testing: "covers/{EXTERNALLINKNODE}.make"
+			testcase: "T.3.2.2.001"
+		local
+			linknode: EXTERNALLINKNODE
+		do
+			create linknode.make (NAME, INTLINK)
+			assert ("Link name internal", linknode.getlink.is_equal(INTLINK))
 		end
 
 end

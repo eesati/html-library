@@ -1,6 +1,4 @@
 Requirements to be tested
-R3.2.2.001
-
 R3.2.3.002
 
 R3.2.4.001
@@ -10,6 +8,7 @@ R3.2.4.003
 Requirements with written tests
 R3.2.1.003
 
+R3.2.2.001
 R3.2.2.002
 R3.2.2.003
 R3.2.2.004
@@ -22,8 +21,10 @@ R3.2.2.010
 
 R3.2.3.001
 
-Requirements which were not implemented
+Requirements which were not implemented (optional, priority >= 3)
 R3.2.2.011
+
+Requirements which were not implemented (mandatory, priority < 3)
 
 Requirements which cannot be tested in eiffel
 R3.2.1.001
