@@ -21,11 +21,9 @@ feature {NONE}
 			tablerow: TABLEROWNODE
 			custom: CUSTOMELEMENT
 
-			image: IMAGENODE
+--			image: IMAGENODE
 
-			filewriter: FILEWRITER
-
-			test: LEAF_TEST
+--			filewriter: FILEWRITER
 		do
 			create document.make("doc1.html");
 
@@ -60,8 +58,6 @@ feature {NONE}
 
 			--create filewriter.make ("C:/Users/besole/Desktop/")
 			--filewriter.write (document, create {MARKDOWN_VISITOR}.make)
-
-			create test.make
 		end
 
 end
